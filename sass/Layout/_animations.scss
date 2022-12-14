@@ -1,0 +1,122 @@
+.loader-position {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    animation: loader-background 0.01s;
+    animation-fill-mode: forwards;
+    z-index: 10000;
+    animation-delay: 1.6s;
+  }
+  
+  .loader-spinner {
+    border: 10px #9356DC solid;
+    border-top: 10px solid #FF79DA;
+    border-bottom: 10px solid #99E2D0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    animation: loader 1800ms linear;
+  }
+  
+  @keyframes loader-background {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      z-index: -9999;
+    }
+  }
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+
+
+
+.loading_screen {
+    animation: blank_p 2245ms;
+}
+@keyframes blank_p {
+    0%{
+          opacity: 0;
+    }
+    70%{
+          opacity: 0.1;
+    }
+    100%{
+          opacity: 1;
+    }
+}
+.heart_anim{
+      position: absolute;
+      height: 25px;
+        font-size: 25px;
+        cursor: pointer;
+  }
+  .heart_anim input[type="checkbox"]:checked ~ .heart_non-select {
+      display: none;
+  }
+  .heart_anim input[type="checkbox"]:checked ~ .heart_select {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0);
+  }
+  .heart_anim input[type="checkbox"], .heart_anim .heart_select {
+      display: none;
+      animation: jaime 0.4s;
+      animation-fill-mode: forwards;
+      transition: all 0.5s;
+  }
+  @keyframes jaime {
+      0%{ 
+          height: 0%;
+      }
+      10%{
+          height: 10%;
+      }
+      25%{
+          height:25%;
+      }
+      50%{ 
+          height: 50%;
+      }
+      75%{
+          height:75%;
+      }
+      100%{ 
+          height: 100%;
+          background: linear-gradient(to bottom, $primary-color,$secondary-color);
+          -webkit-background-clip: text;
+          background-clip: text;
+      }
+  }
+  .format_dish{
+    animation: fade-dishs 1s;
+}
+
+
+  @keyframes fade-dishs {
+    from {
+		transform: translateY(20px);
+        opacity:0;
+    }
+    to {
+		transform: translateY(0);
+        opacity:1;
+    }
+}

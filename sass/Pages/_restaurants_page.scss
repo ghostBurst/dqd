@@ -1,0 +1,160 @@
+main .image_restaurant{
+    width: 100%;
+    object-fit: cover;
+}
+#image_restaurant2{
+        object-position: 0 -100px;
+    }
+.restaurant_page{
+    background: $background-color-main;
+    padding-bottom: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    border-radius: 40px 40px 0px 0px;
+    margin-top: -14%;
+}
+.restaurant_page_restaurant2{
+    margin-top: -68%;
+}
+.header_menu{
+    display: flex;
+    padding-top: 30px;
+    margin-bottom: -10px;
+    &_title h1{
+        font-family: $titles-logo-font;
+        margin-left: 5px;
+    }
+    &_heart .heart_anim_pages-resto{
+	    right: 35px;
+    }
+}
+.restaurant_menu h2{
+    font-weight: normal;
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid $tertiary-color;
+    padding-bottom: 5px;
+    width: 40px;
+    margin-left: 5px;
+}
+.check{
+    display: inline-block;
+    overflow: hidden;
+    flex-shrink: 0;
+    font-size: 20px;
+    background-color: #99E2D0;
+    color: white;
+    border-radius: 0px 15px 15px 0px;
+    width: 0px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 1s;
+    & .fa-circle-check{
+        transform: rotate(0deg);
+        transition: transform 500ms ease-in-out;
+    }
+}
+
+.format_dish{
+    cursor: pointer;
+    overflow: hidden;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; 
+    border-radius: 15px;
+    padding-left: 12px;
+    margin-bottom: 15px;
+    box-shadow: 1px 4px 9px 1px rgb(0 0 0 / 10%);
+    transition: transform 330ms ease-in-out;
+    &_textes{
+        line-height: 25px;
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 10px;
+        &_title{
+            font-weight: bold;
+            font-size: 18px;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        &_precision{
+            font-size: 14px;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            }
+    }
+    &_prix{
+        font-weight: bold;
+        padding-right: 20px;
+        margin-top: 31px;
+    }
+    &:hover .check{
+        width: 60px;
+        & > .fa-circle-check{
+          transform: rotate(360deg);
+        }
+    }
+}
+
+
+
+button{
+    @include button_action_format;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+.commander_button{
+    text-align: center;
+}
+  @media screen and (min-width: $tablette-version) and (max-width: $desktop-version){
+      .restaurant_page{
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      .restaurant_page_restaurant2{
+        margin-top: -73%;
+    }
+  }
+  @media screen and (min-width: $desktop-version){
+    main .image_restaurant{
+        object-fit: cover;
+        object-position: 0 -330px;
+    }
+    #image_restaurant2{
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 600px;
+        object-position: 0 -591px;
+    }
+    .restaurant_page{
+        margin-top: -35%;
+    }
+    .restaurant_page_restaurant2{
+        margin-top: -13%;
+    }
+    .header_menu{
+        justify-content: center;
+    }
+    .restaurant_menu{
+        display: flex;
+        justify-content: space-evenly;
+        column-gap: 14px;
+    }
+    .format_dish{
+        width: 320px;
+    }
+  }
