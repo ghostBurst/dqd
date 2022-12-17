@@ -1,122 +1,234 @@
+* {
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.fonctionnement {
+  padding: 40px 20px 40px 20px;
+}
+.fonctionnement_title {
+  margin-bottom: 25px;
+}
+.fonctionnement_liste {
+  margin-left: 12px;
+}
+
+ol {
+  counter-reset: compteListe;
+}
+ol li::before {
+  counter-increment: compteListe 1;
+  content: counter(compteListe) " ";
+  background: #9356DC;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: absolute;
+  display: flex;
+  margin-top: -2px;
+  margin-left: -50px;
+}
+ol li {
+  cursor: pointer;
+  background: #f6f6f6;
+  box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  height: 80px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 37px;
+}
+ol li i {
+  color: #777777;
+  margin-right: 20px;
+}
+ol li span {
+  font-weight: bold;
+}
+ol li:hover {
+  background: #f5edff;
+}
+ol li:hover i {
+  color: #9356DC;
+}
+
+@media screen and (min-width: 992px) {
+  ol {
+    display: flex;
+    justify-content: space-around;
+  }
+  ol li {
+    padding-right: 40px;
+  }
+  h2 {
+    text-align: center;
+  }
+}
 .loader-position {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    animation: loader-background 0.01s;
-    animation-fill-mode: forwards;
-    z-index: 10000;
-    animation-delay: 1.6s;
-  }
-  
-  .loader-spinner {
-    border: 10px #9356DC solid;
-    border-top: 10px solid #FF79DA;
-    border-bottom: 10px solid #99E2D0;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    animation: loader 1800ms linear;
-  }
-  
-  @keyframes loader-background {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      z-index: -9999;
-    }
-  }
-  @keyframes loader {
-    0% {
-      transform: rotate(0deg);
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(360deg);
-      opacity: 1;
-    }
-  }
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  animation: loader-background 0.01s;
+  animation-fill-mode: forwards;
+  z-index: 10000;
+  animation-delay: 1.6s;
+}
 
+.loader-spinner {
+  border: 10px #9356DC solid;
+  border-top: 10px solid #FF79DA;
+  border-bottom: 10px solid #99E2D0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  animation: loader 1800ms linear;
+}
 
-
-
+@keyframes loader-background {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -9999;
+  }
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
 .loading_screen {
-    animation: blank_p 2245ms;
+  animation: blank_p 2245ms;
 }
+
 @keyframes blank_p {
-    0%{
-          opacity: 0;
-    }
-    70%{
-          opacity: 0.1;
-    }
-    100%{
-          opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.heart_anim{
-      position: absolute;
-      height: 25px;
-        font-size: 25px;
-        cursor: pointer;
+.heart_anim {
+  position: absolute;
+  height: 25px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.heart_anim input[type=checkbox]:checked ~ .heart_non-select {
+  display: none;
+}
+
+.heart_anim input[type=checkbox]:checked ~ .heart_select {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0);
+}
+
+.heart_anim input[type=checkbox], .heart_anim .heart_select {
+  display: none;
+  animation: jaime 0.4s;
+  animation-fill-mode: forwards;
+  transition: all 0.5s;
+}
+
+@keyframes jaime {
+  0% {
+    height: 0%;
   }
-  .heart_anim input[type="checkbox"]:checked ~ .heart_non-select {
-      display: none;
+  10% {
+    height: 10%;
   }
-  .heart_anim input[type="checkbox"]:checked ~ .heart_select {
-      display: inline-block;
-      color: rgba(255, 255, 255, 0);
+  25% {
+    height: 25%;
   }
-  .heart_anim input[type="checkbox"], .heart_anim .heart_select {
-      display: none;
-      animation: jaime 0.4s;
-      animation-fill-mode: forwards;
-      transition: all 0.5s;
+  50% {
+    height: 50%;
   }
-  @keyframes jaime {
-      0%{ 
-          height: 0%;
-      }
-      10%{
-          height: 10%;
-      }
-      25%{
-          height:25%;
-      }
-      50%{ 
-          height: 50%;
-      }
-      75%{
-          height:75%;
-      }
-      100%{ 
-          height: 100%;
-          background: linear-gradient(to bottom, $primary-color,$secondary-color);
-          -webkit-background-clip: text;
-          background-clip: text;
-      }
+  75% {
+    height: 75%;
   }
-  .format_dish{
-    animation: fade-dishs 1s;
+  100% {
+    height: 100%;
+    background: linear-gradient(to bottom, #9356DC, #FF79DA);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+.format_dish {
+  animation: fade-dishs 1s;
 }
 
 
-  @keyframes fade-dishs {
-    from {
-		transform: translateY(20px);
-        opacity:0;
-    }
-    to {
-		transform: translateY(0);
-        opacity:1;
-    }
+.format_dish {
+  opacity: 1;
+  transform: translateY(35px);
+}
+
+.format_dish:nth-child(1) {
+  opacity: 0;
+  animation: fade-dishs 0.5s 0.2s ease-in-out forwards;
+}
+.format_dish:nth-child(2) {
+  opacity: 0;
+  animation: fade-dishs 0.5s 0.4s ease-in-out forwards;
+}
+.format_dish:nth-child(3) {
+  opacity: 0;
+  animation: fade-dishs 0.5s 0.6s ease-in-out forwards;
+}
+.format_dish:nth-child(4) {
+  opacity: 0;
+  animation: fade-dishs 0.5s 0.8s ease-in-out forwards;
+}
+
+.format_dish:nth-child(5) {
+  opacity: 0;
+  animation: fade-dishs 0.5s 1s ease-in-out forwards;
+}
+
+
+@keyframes fade-dishs {
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
 }
